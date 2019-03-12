@@ -1,0 +1,14 @@
+<div *ngIf="!this.auth.checkIfLoggedIn()">
+  <p>Your username must:</p>
+  <ul>
+    <li>Be at least 10 characters long.</li>
+    <li>Contain at least one number.</li>
+  </ul>
+  <input placeholder="Enter your username.." [(ngModel)]="username" name="username" autocomplete="off" (input)="this.auth.recolorText(username)" />
+  <button class="login" (click)="this.auth.login(username)">Log in</button>
+</div>
+
+<div *ngIf="this.auth.checkIfLoggedIn()">
+  <p>You are already logged in!</p>
+  <button class="logout" (click)="this.auth.logout()">Log out</button>
+</div>

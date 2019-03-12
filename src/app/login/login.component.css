@@ -1,0 +1,39 @@
+:host input{
+  padding: 21.5px;
+  display: block;
+  width: 205px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+  background-color: #eee;
+}
+
+:host button{
+  border: none;
+  padding: 21.5px;
+  border: 1px solid rgba(0,0,0,0.5);
+  outline: none;
+  cursor: pointer;
+}
+
+:host button:active{
+  filter: saturate(200%);
+}
+
+:host button.login{
+  background-color: hsl(100, 50%, 50%);
+}
+
+:host button.logout{
+  background-color: hsl(0, 50%, 50%);
+  margin-top: 20px;
+}
+
+:host li{
+  margin-left: 30px;
+}
+
+:host ul{
+  margin-bottom: 20px;
+}

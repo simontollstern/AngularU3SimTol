@@ -1,0 +1,25 @@
+:host ul{
+  padding-right: 20px;
+  min-width: 250px;
+  border-right: 1px solid #111;
+}
+
+:host li{
+  list-style-type: none;
+  width: 100%;
+}
+
+:host button{
+  border: none;
+  padding: 21.5px;
+  border: 1px solid rgba(0,0,0,0.5);
+  outline: none;
+  cursor: pointer;
+  background-color: hsl(200, 50%, 50%);
+  margin-right: 5px;
+  width: 100%;
+}
+
+:host button:active{
+  filter: saturate(200%);
+}

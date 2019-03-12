@@ -1,0 +1,7 @@
+<ul>
+  <app-user-list-item *ngFor="let user of users"
+    [user]="user"
+    [textColor]="textColor">
+  </app-user-list-item>
+  <li><button (click)="changeColor()">Toggle colors</button></li>
+</ul>

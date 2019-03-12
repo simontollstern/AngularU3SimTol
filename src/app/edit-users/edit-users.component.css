@@ -1,0 +1,37 @@
+:host input{
+  padding: 21.5px;
+  margin-left: 20px;
+  display: block;
+  width: 205px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+  background-color: #eee;
+}
+
+:host div{
+  margin-left: 20px;
+}
+
+:host button{
+  border: none;
+  padding: 21.5px;
+  border: 1px solid rgba(0,0,0,0.5);
+  outline: none;
+  cursor: pointer;
+}
+
+:host button:active{
+  filter: saturate(200%);
+}
+
+:host button:first-child{
+  background-color: hsl(100, 50%, 50%);
+  margin-right: 5px;
+}
+
+:host button:last-child{
+  background-color: hsl(0, 50%, 50%);
+  margin-left: 5px;
+}
