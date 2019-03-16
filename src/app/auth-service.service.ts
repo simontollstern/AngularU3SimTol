@@ -7,7 +7,7 @@ import { AdminLogin } from '.models/admin-login.model';
   providedIn: 'root'
 })
 
-// The service responsible for authentication (login, logout).
+// The service responsible for authentication (login, register, logout).
 export class AuthServiceService {
   public admins: AdminFull[] = [
     {
@@ -35,7 +35,9 @@ export class AuthServiceService {
     return localStorage.getItem('admin') ? true : false;
   }
 
-  // Logs the user in and redirects them.
+  // Compares the parameter to the list of users
+  // If it exists, log the user in
+  // Otherwise open the modal with an error message
   login(credentials: AdminLogin): void{
     let authenticated: boolean = false;
     for(let admin of this.admins){
@@ -52,6 +54,7 @@ export class AuthServiceService {
     }
   }
 
+  // Add a new user to the list of users
   register(credentials: AdminLogin): void{
     this.admins.push({
       firstName: credentials.firstName,
@@ -63,6 +66,8 @@ export class AuthServiceService {
     this.toggleForm();
   }
 
+  // Hides the login form and displays the register form
+  // And vice versa
   toggleForm(): void{
     this.loginForm = !this.loginForm;
     this.registerForm = !this.registerForm;

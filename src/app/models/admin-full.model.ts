@@ -1,3 +1,4 @@
+// Model for admins, contains all information
 export class AdminFull {
   constructor(
     public firstName:string,

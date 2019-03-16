@@ -32,7 +32,8 @@ export class DashboardComponent {
     this.userList.pop();
   }
 
-  showUsers(){
+  // Get the users from the API and put them in userList
+  showUsers(): void{
     this.users.getUsers().subscribe(
       (response) => { this.userList = response }
     );

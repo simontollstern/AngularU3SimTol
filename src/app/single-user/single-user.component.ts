@@ -21,6 +21,7 @@ export class SingleUserComponent {
     this.showCurrentUser();
   }
 
+  // Uses the parameter from the url to get the correct user from the API
   showCurrentUser(){
     this.users.getUser(this.user).subscribe(
       (response) => {

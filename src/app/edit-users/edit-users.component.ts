@@ -12,6 +12,8 @@ export class EditUsersComponent {
   @Output() addUser = new EventEmitter<string>();
   @Output() removeUser = new EventEmitter<any>();
 
+  constructor() { }
+
   // Runs when the "Add" button is pressed
   // Emits the addUser event with the value from the input field
   add(): void{
@@ -24,6 +26,4 @@ export class EditUsersComponent {
   remove(): void{
     this.removeUser.emit(null);
   }
-
-  constructor() { }
 }
