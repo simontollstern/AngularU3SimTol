@@ -1,0 +1,20 @@
+:host div{
+  padding: 30px;
+  border: 1px solid #111;
+  background-color: #333;
+}
+
+:host h1{
+  font-size: 22px;
+  font-weight: normal;
+  color: #ccc;
+}
+
+:host h2{
+  margin: 5px 0 10px;
+  color: #777;
+}
+
+:host p{
+  color: #ccc;
+}

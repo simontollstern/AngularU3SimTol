@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +10,11 @@ import { AuthServiceService } from '../auth-service.service';
 
 // The Dashboard component - Basically a wrapper for other components
 export class DashboardComponent {
-  userList: string[] = ['User 1', 'User 2', 'User 3', 'User 4', 'User 5'];
+  userList: any;
 
-  constructor(private auth: AuthServiceService) { }
+  constructor(private auth: AuthServiceService, private users: UsersService) {
+    this.showUsers();
+  }
 
   // Runs when the addUser event is emitted
   // Pushes the user input to userList and clears the input field
@@ -27,5 +30,11 @@ export class DashboardComponent {
   // Removes the last value from userList
   onRemoveUser(): void{
     this.userList.pop();
+  }
+
+  showUsers(){
+    this.users.getUsers().subscribe(
+      (response) => { this.userList = response }
+    );
   }
 }

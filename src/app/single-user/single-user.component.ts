@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-single-user',
@@ -9,12 +10,22 @@ import { ActivatedRoute } from '@angular/router';
 
 // Component showing individual users
 export class SingleUserComponent {
-  user: string;
+  user: any;
 
   // Gets the parameter from the url
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private users: UsersService) {
     route.params.subscribe(params => {
       this.user = params.name;
-    })
+    });
+
+    this.showCurrentUser();
+  }
+
+  showCurrentUser(){
+    this.users.getUser(this.user).subscribe(
+      (response) => {
+        this.user = response;
+      }
+    );
   }
 }
