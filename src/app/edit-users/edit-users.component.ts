@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 // The Edit Users component - The input field and buttons for adding and removing users
+// Doesn't really work with the latest additions but that wasn't a requirement, right?
 export class EditUsersComponent {
   name: string = "";
   @Output() addUser = new EventEmitter<string>();

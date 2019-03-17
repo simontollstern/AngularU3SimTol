@@ -33,6 +33,7 @@ export class DashboardComponent {
   }
 
   // Get the users from the API and put them in userList
+  // Runs in the constructor as seen above
   showUsers(): void{
     this.users.getUsers().subscribe(
       (response) => { this.userList = response }

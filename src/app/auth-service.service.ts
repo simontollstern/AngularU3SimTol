@@ -66,6 +66,9 @@ export class AuthServiceService {
     this.toggleForm();
   }
 
+  // As a side note: perhaps methods related to the forms should be in login.component instead.
+  // This works though
+
   // Hides the login form and displays the register form
   // And vice versa
   toggleForm(): void{

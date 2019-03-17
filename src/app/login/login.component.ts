@@ -8,7 +8,7 @@ import { AdminLogin } from '../models/admin-login.model';
   styleUrls: ['./login.component.css']
 })
 
-// Component that handles login/register/logout
+// Component that provides the login form, register form and logout button
 // Imports logic from AuthService
 export class LoginComponent {
   authModel = new AdminLogin('', '');
