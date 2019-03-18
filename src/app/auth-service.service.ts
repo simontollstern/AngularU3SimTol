@@ -70,8 +70,6 @@ export class AuthServiceService {
       password: credentials.password
     });
 
-    console.log(this.admins);
-
     this.toggleForm();
   }
 
