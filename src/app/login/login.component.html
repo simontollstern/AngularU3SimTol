@@ -1,17 +1,17 @@
 <app-modal *ngIf="this.auth.modalMessage" [modalMessage]="this.auth.modalMessage" (closeModal)="closeModal()"></app-modal>
 
 <div *ngIf="!this.auth.checkIfLoggedIn() && this.auth.loginForm">
-  <form #loginForm="ngForm" (ngSubmit)="this.auth.login(authModel)">
+  <form #loginForm="ngForm" (ngSubmit)="this.auth.verifyLogin(loginModel)">
     <div>
       <label for="email">E-mail:</label>
-      <input type="email" id="email" required [(ngModel)]="authModel.email" name="email" autocomplete="off" spellcheck="false" email #emailField="ngModel" />
+      <input type="email" id="email" required [(ngModel)]="loginModel.email" name="email" autocomplete="off" spellcheck="false" email #emailField="ngModel" />
       <div class="form-error" [hidden]="emailField.valid || emailField.invalid && emailField.untouched">
         Email is required in the format text@text.text
       </div>
     </div>
     <div>
       <label for="password">Password:</label>
-      <input type="password" id="password" required [(ngModel)]="authModel.password" name="password" minlength="10" #passwordField="ngModel" />
+      <input type="password" id="password" required [(ngModel)]="loginModel.password" name="password" minlength="10" #passwordField="ngModel" />
       <div class="form-error" [hidden]="passwordField.valid || passwordField.invalid && passwordField.untouched">
         Password is required and has to be at least 10 characters
       </div>
@@ -22,31 +22,31 @@
 </div>
 
 <div *ngIf="!this.auth.checkIfLoggedIn() && this.auth.registerForm">
-  <form #registerForm="ngForm" (ngSubmit)="this.auth.register(authModel)">
+  <form #registerForm="ngForm" (ngSubmit)="this.auth.register(registerModel)">
     <div>
       <label for="email">E-mail:</label>
-      <input type="email" id="email" required [(ngModel)]="authModel.email" name="email" autocomplete="off" spellcheck="false" email #emailField="ngModel" />
+      <input type="email" id="email" required [(ngModel)]="registerModel.email" name="email" autocomplete="off" spellcheck="false" email #emailField="ngModel" />
       <div class="form-error" [hidden]="emailField.valid || emailField.invalid && emailField.untouched">
         Email is required in the format text@text.text
       </div>
     </div>
     <div>
       <label for="firstName">First name:</label>
-      <input type="text" id="firstName" required [(ngModel)]="authModel.firstName" name="firstName" autocomplete="off" spellcheck="false" #firstNameField="ngModel" />
+      <input type="text" id="firstName" required [(ngModel)]="registerModel.firstName" name="firstName" autocomplete="off" spellcheck="false" #firstNameField="ngModel" />
       <div class="form-error" [hidden]="firstNameField.valid || firstNameField.invalid && firstNameField.untouched">
         First name is required
       </div>
     </div>
     <div>
       <label for="lastName">Last name:</label>
-      <input type="text" id="lastName" required [(ngModel)]="authModel.lastName" name="lastName" autocomplete="off" spellcheck="false" #lastNameField="ngModel" />
+      <input type="text" id="lastName" required [(ngModel)]="registerModel.lastName" name="lastName" autocomplete="off" spellcheck="false" #lastNameField="ngModel" />
       <div class="form-error" [hidden]="lastNameField.valid || lastNameField.invalid && lastNameField.untouched">
         Last name is required
       </div>
     </div>
     <div>
       <label for="password">Password:</label>
-      <input type="password" id="password" required [(ngModel)]="authModel.password" name="password" minlength="10" #passwordField="ngModel" />
+      <input type="password" id="password" required [(ngModel)]="registerModel.password" name="password" minlength="10" #passwordField="ngModel" />
       <div class="form-error" [hidden]="passwordField.valid || passwordField.invalid && passwordField.untouched">
         Password is required and has to be at least 10 characters
       </div>

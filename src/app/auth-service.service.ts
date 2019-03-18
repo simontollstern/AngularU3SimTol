@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminFull } from './models/admin-full.model';
-import { AdminLogin } from '.models/admin-login.model';
+import { AdminLogin } from './models/admin-login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,30 +38,39 @@ export class AuthServiceService {
   // Compares the parameter to the list of users
   // If it exists, log the user in
   // Otherwise open the modal with an error message
-  login(credentials: AdminLogin): void{
+  verifyLogin(credentials: AdminLogin): void{
     let authenticated: boolean = false;
+    let authenticatedAdmin: AdminLogin;
     for(let admin of this.admins){
       if(credentials.email === admin.email && credentials.password === admin.password){
         authenticated = true;
+        authenticatedAdmin = admin;
         break;
       }
     }
     if(authenticated){
-      localStorage.setItem('admin', admin.firstName + ' ' + admin.lastName);
-      this.router.navigate(['/']);
+      this.login(authenticatedAdmin);
     }else{
       this.modalMessage = "Invalid email or password!";
     }
   }
 
+  // Sets localStorage to the logged in user and navigates to the dashboard
+  login(admin): void{
+    localStorage.setItem('admin', admin.firstName + ' ' + admin.lastName);
+    this.router.navigate(['/']);
+  }
+
   // Add a new user to the list of users
-  register(credentials: AdminLogin): void{
+  register(credentials: AdminFull): void{
     this.admins.push({
       firstName: credentials.firstName,
       lastName: credentials.lastName,
       email: credentials.email,
       password: credentials.password
     });
+
+    console.log(this.admins);
 
     this.toggleForm();
   }

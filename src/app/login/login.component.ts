@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 import { AdminLogin } from '../models/admin-login.model';
+import { AdminFull } from '../models/admin-full.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { AdminLogin } from '../models/admin-login.model';
 // Component that provides the login form, register form and logout button
 // Imports logic from AuthService
 export class LoginComponent {
-  authModel = new AdminLogin('', '');
+  loginModel = new AdminLogin('', '');
+  registerModel = new AdminFull('', '', '', '');
 
   constructor(private auth: AuthServiceService) { }
 
